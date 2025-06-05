@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fauz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .navbar-right {
+            float: right;
+        }
+
+        /* Home Section */
+        .home {
+            width: 100%;
+            height: 650px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(https://img.freepik.com/premium-photo/simple-white-background-with-smooth-lines-light-colors_476363-5220.jpg?w=900);
+            gap: 50px;
+        }
+
+        .home1 {
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+            border-radius: 10% 90% 16% 84% / 71% 26% 74% 29%;
+        }
+
+        .pera {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Services Section */
+        .service {
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .sercard {
+            width: 30%;
+            height: 500px;
+            background-color: #fffefe;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .serimg {
+            width: 100%;
+            height: 70%;
+        }
+
+        .serhead {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Projects Section */
+        .projects {
+            width: 100%;
+            min-height: 700px;
+            padding: 50px 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
+        }
+ 
+        .project-card {
+            width: 250px;
+            height: 400px;
+            background: rgb(236, 18, 18);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            width: 100%;
+            min-height: 500px;
+            padding: 50px 0;
+            background-color: #e9e9e9;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        .submit-btn {
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+       
+
+        /* Footer Section */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #04AA6D;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #04AA6D;
+        }
+
+        .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a,
+            .navbar-right {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+            }
+
+            .home {
+                flex-direction: column;
+                height: auto;
+                padding: 50px 20px;
+            }
+
+            .service {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sercard {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+
+            .project-card {
+                width: 100%;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#" class="logo">fauz</a>
+        <div class="navbar-right">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact me</a>
+        </div>
+    </div>
+
+    <!-- Home Section -->
+    <div id="home" class="home">
+        <div class="home1"></div>
+        <div class="pera">
+            <h1>web designer</h1>
+            <h2>malappuram, kerala, india</h2>
+            <p>"your gang have five members"</p>
+            <h3>-muhamed fauz m</h3>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" style="background-color: #9691917c">
+        <h1 class="section-header">service</h1>
+        <div class="service">
+            <div class="sercard">
+                <div class="serimg">
+                    <img src="https://img.freepik.com/free-vector/web-developers-courses-computer-programming-web-design-script-coding-study-computer-science-student-learning-interface-structure-components_335657-2542.jpg?size=338&ext=jpg&uid=R79149278&ga=GA1.2.1325267662.1662008289"
+                        alt="" style="width: 100%; height: 100%;">
+                    <h2 style="text-align: center;">web design</h2>
+                    <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+                        dignissimos repellendus, eos quibusdam corrupti minus id perferendis cupiditate laboriosam
+                        exercitationem numquam modi obcaecati itaque odit totam incidunt magni nemo et.</p>
+                </div>
+            </div>
+
+            <div class="sercard">
+                <div class="serimg">
+                    <img src="https://img.freepik.com/free-vector/web-developers-courses-computer-programming-web-design-script-coding-study-computer-science-student-learning-interface-structure-components_335657-2542.jpg?size=338&ext=jpg&uid=R79149278&ga=GA1.2.1325267662.1662008289"
+                        alt="" style="width: 100%; height: 100%;">
+                    <h2 style="text-align: center;">web design</h2>
+                    <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+                        dignissimos repellendus, eos quibusdam corrupti minus id perferendis cupiditate laboriosam
+                        exercitationem numquam modi obcaecati itaque odit totam incidunt magni nemo et.</p>
+                </div>
+            </div>
+
+            <div class="sercard">
+                <div class="serimg">
+                    <img src="https://img.freepik.com/free-vector/web-developers-courses-computer-programming-web-design-script-coding-study-computer-science-student-learning-interface-structure-components_335657-2542.jpg?size=338&ext=jpg&uid=R79149278&ga=GA1.2.1325267662.1662008289"
+                        alt="" style="width: 100%; height: 100%;">
+                    <h2 style="text-align: center;">web design</h2>
+                    <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+                        dignissimos repellendus, eos quibusdam corrupti minus id perferendis cupiditate laboriosam
+                        exercitationem numquam modi obcaecati itaque odit totam incidunt magni nemo et.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h1 class="section-header">My Projects</h1>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="https://img.freepik.com/free-psd/digital-marketing-agency-website-template_23-2149088939.jpg" alt="Project 1" class="project-img">
+                <div class="project-info">
+                    <h3>E-commerce Website</h3>
+                    <p>A fully responsive online store with product listings, cart functionality, and secure checkout.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://img.freepik.com/free-psd/business-landing-page-template_23-2149088938.jpg" alt="Project 2" class="project-img">
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <p>A personal portfolio showcasing my work, skills, and achievements with clean modern design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h1 class="section-header">Contact Me</h1>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/>
+</svg>
+</i></a>
+                <a href="#"><i class="fab fa-linkedin"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m17.0896 13.371 1.1431 1.1439c.1745.1461.3148.3287.4111.5349.0962.2063.1461.4312.1461.6588 0 .2276-.0499.4525-.1461.6587-.0963.2063-.4729.6251-.6473.7712-3.1173 3.1211-6.7739 1.706-9.90477-1.4254-3.13087-3.1313-4.54323-6.7896-1.41066-9.90139.62706-.61925 1.71351-1.14182 2.61843-.23626l1.1911 1.19193c1.1911 1.19194.3562 1.93533-.4926 2.80371-.92477.92481-.65643 1.72741 0 2.38391l1.8713 1.8725c.3159.3161.7443.4936 1.191.4936.4468 0 .8752-.1775 1.1911-.4936.8624-.8261 1.6952-1.6004 2.8382-.4565Zm-2.2152-4.39103 2.1348-2.13485m0 0 2.1597-1.90738m-2.1597 1.90738 2.1597 2.15076m-2.1597-2.15076-2.1348-1.90738"/>
+</svg>
+</i></a>
+                <a href="#"><i class="fab fa-twitter"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M22 5.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.343 8.343 0 0 1-2.605.981A4.13 4.13 0 0 0 15.85 4a4.068 4.068 0 0 0-4.1 4.038c0 .31.035.618.105.919A11.705 11.705 0 0 1 3.4 4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 6.1 13.635a4.192 4.192 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 2 18.184 11.732 11.732 0 0 0 8.291 20 11.502 11.502 0 0 0 19.964 8.5c0-.177 0-.349-.012-.523A8.143 8.143 0 0 0 22 5.892Z" clip-rule="evenodd"/>
+</svg>
+</i></a>
+                <a href="#"><i class="fab fa-instagram"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd"/>
+</svg>
+</i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 fauz. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
